@@ -18,7 +18,7 @@ const TESTIMONIALS: Testimonial[] = [
     name: "Abdul Rehman",
     role: "Real Estate Agent",
     product: "Digital Realtor",
-    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=150&h=150",
+    avatar: "/tamer.jpg",
     stars: 5,
   },
   {
@@ -26,7 +26,7 @@ const TESTIMONIALS: Testimonial[] = [
     name: "Marcus Thompson",
     role: "FinTech CEO",
     product: "Sleft Payments",
-    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=150&h=150",
+    avatar: "/grantdenmark.jpg",
     stars: 5,
   },
   {
@@ -34,7 +34,7 @@ const TESTIMONIALS: Testimonial[] = [
     name: "Grant Denmark",
     role: "VP of Analytics",
     product: "Sleft Signals",
-    avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=150&h=150",
+    avatar: "/michael.jpg",
     stars: 5,
   },
   {
@@ -42,7 +42,7 @@ const TESTIMONIALS: Testimonial[] = [
     name: "Jessica Martinez",
     role: "Startup Founder",
     product: "AI Site Builder",
-    avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=150&h=150",
+    avatar: "/sara.jpg",
     stars: 5,
   },
   {
@@ -50,7 +50,7 @@ const TESTIMONIALS: Testimonial[] = [
     name: "Sarah Chen",
     role: "YouTube Creator",
     product: "ThumbnailGo",
-    avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=150&h=150",
+    avatar: "/calew.png",
     stars: 5,
   },
   {
@@ -58,7 +58,7 @@ const TESTIMONIALS: Testimonial[] = [
     name: "David Park",
     role: "Software Engineer",
     product: "JioResume",
-    avatar: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=150&h=150",
+    avatar: "/carlos.jpg",
     stars: 5,
   },
   {
