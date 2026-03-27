@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   },
   title: "DevGrow — Build Digital Products That Scale",
   description:
-    "Full-stack development agency shipping AI-powered web apps, SaaS platforms, and mobile apps in 3-4 weeks. 20+ production apps. $80M+ revenue generated for clients.",
+    "Full-stack development agency shipping AI-powered web apps, SaaS platforms, and mobile apps in 3-4 weeks. 20+ production apps. $50k+ revenue generated for clients.",
   keywords: [
     "web development agency",
     "SaaS development",

@@ -377,7 +377,7 @@ export function CinematicHero({
                     <span className="text-base lg:text-lg" aria-hidden="true">💰</span>
                   </div>
                   <div>
-                    <p className="text-white text-xs lg:text-sm font-bold tracking-tight">$80M+ Revenue</p>
+                    <p className="text-white text-xs lg:text-sm font-bold tracking-tight">$50k+ Revenue</p>
                     <p className="text-blue-200/50 text-[10px] lg:text-xs font-medium">Generated for clients</p>
                   </div>
                 </div>

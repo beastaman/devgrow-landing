@@ -93,7 +93,7 @@ export function WhySection() {
                 { v: "100%", l: "Client Satisfaction" },
                 { v: "99.2%", l: "Project Success Rate" },
                 { v: "24/7", l: "Support Available" },
-                { v: "$80M+", l: "Revenue Generated" },
+                { v: "$50k+", l: "Revenue Generated" },
               ].map((s) => (
                 <div
                   key={s.l}

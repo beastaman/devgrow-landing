@@ -5,7 +5,7 @@ import { ShinyButton } from "@/components/ui/shiny-button";
 const PACKAGES = [
   {
     name: "Starter",
-    price: "$1,500",
+    price: "$500",
     period: "one-time",
     tag: "Perfect to start",
     color: "#3B82F6",
@@ -22,7 +22,7 @@ const PACKAGES = [
   },
   {
     name: "Growth",
-    price: "$3,500",
+    price: "$2,500",
     period: "one-time",
     tag: "Most Popular",
     color: "#A78BFA",

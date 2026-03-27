@@ -56,7 +56,7 @@ export function TrustBar() {
       >
         {[
           { value: "20+", label: "Apps Shipped" },
-          { value: "$80M+", label: "Client Revenue" },
+          { value: "$50k+", label: "Client Revenue" },
           { value: "3–4 wks", label: "Avg. Delivery" },
           { value: "10+", label: "Countries" },
         ].map((stat) => (
