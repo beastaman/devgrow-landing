@@ -106,7 +106,7 @@ export function AdsHero() {
                 "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=40&h=40&fit=crop&crop=face",
                 "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=40&h=40&fit=crop&crop=face",
               ].map((src, i) => (
-                <img key={i} src={src} alt="Client" className="w-8 h-8 rounded-full object-cover ring-2" style={{ ringColor: "#030308" }} />
+                <img key={i} src={src} alt="Client" className="w-8 h-8 rounded-full object-cover ring-2" style={{ outline: "2px solid #030308" }} />
               ))}
             </div>
             <p className="text-sm" style={{ color: "rgba(255,255,255,0.45)" }}>
