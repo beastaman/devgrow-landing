@@ -2,8 +2,9 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, CheckCircle2, Loader2 } from "lucide-react";
+import { CheckCircle2, Loader2 } from "lucide-react";
 import { CinematicHero } from "@/components/ui/cinematic-landing-hero";
+import { ShinyButton } from "@/components/ui/shiny-button";
 
 function HeroLeadForm() {
   const [name, setName] = useState("");
@@ -205,18 +206,13 @@ function HeroLeadForm() {
 
                   {error && <p className="text-sm text-red-400">{error}</p>}
 
-                  <button
-                    type="submit"
-                    disabled={loading}
-                    className="w-full h-12 rounded-xl font-bold text-sm flex items-center justify-center gap-2 transition-all duration-300 hover:-translate-y-0.5 disabled:opacity-60"
-                    style={{ background: "linear-gradient(135deg, #A78BFA 0%, #8B5CF6 100%)", color: "#fff" }}
-                  >
+                  <ShinyButton type="submit" disabled={loading} className="w-full justify-center">
                     {loading ? (
                       <><Loader2 className="w-4 h-4 animate-spin" /> Sending…</>
                     ) : (
-                      <>Get Free Estimate <ArrowRight className="w-4 h-4" /></>
+                      "Get Free Estimate →"
                     )}
-                  </button>
+                  </ShinyButton>
 
                   <p className="text-center text-xs" style={{ color: "rgba(255,255,255,0.2)" }}>
                     No commitment. No sales pressure. Just clarity.

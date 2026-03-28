@@ -4,9 +4,9 @@
 import * as React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { CheckCircle2, Loader2 } from "lucide-react";
+import { ShinyButton } from "@/components/ui/shiny-button";
 
 interface CtaCardProps extends React.HTMLAttributes<HTMLDivElement> {
   imageSrc: string;
@@ -169,15 +169,13 @@ const CtaCard = React.forwardRef<HTMLDivElement, CtaCardProps>(
                   {error && (
                     <p className="text-sm text-red-400">{error}</p>
                   )}
-                  <Button
-                    type="submit"
-                    size="lg"
-                    disabled={loading}
-                    className="h-12 bg-white text-black hover:bg-neutral-200 font-bold disabled:opacity-60"
-                  >
-                    {loading ? "Sending…" : buttonText}
-                    {!loading && <ArrowRight className="ml-2 h-4 w-4" />}
-                  </Button>
+                  <ShinyButton type="submit" disabled={loading} className="w-full justify-center">
+                    {loading ? (
+                      <><Loader2 className="w-4 h-4 animate-spin" /> Sending…</>
+                    ) : (
+                      `${buttonText} →`
+                    )}
+                  </ShinyButton>
                 </motion.form>
               )}
             </AnimatePresence>

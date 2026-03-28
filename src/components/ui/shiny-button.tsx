@@ -7,9 +7,11 @@ interface ShinyButtonProps {
   onClick?: () => void
   className?: string
   href?: string
+  type?: "button" | "submit" | "reset"
+  disabled?: boolean
 }
 
-export function ShinyButton({ children, onClick, className = "", href }: ShinyButtonProps) {
+export function ShinyButton({ children, onClick, className = "", href, type = "button", disabled }: ShinyButtonProps) {
   const styles = `
     @property --gradient-angle {
       syntax: "<angle>";
@@ -160,7 +162,7 @@ export function ShinyButton({ children, onClick, className = "", href }: ShinyBu
   return (
     <>
       <style dangerouslySetInnerHTML={{ __html: styles }} />
-      <button className={`shiny-cta ${className}`} onClick={onClick}>
+      <button className={`shiny-cta ${className}`} onClick={onClick} type={type} disabled={disabled} style={disabled ? { opacity: 0.6, pointerEvents: "none" } : undefined}>
         <span>{children}</span>
       </button>
     </>
