@@ -94,7 +94,7 @@ export function CtaSection() {
 
           {/* View portfolio card */}
           <a
-            href="#work"
+            href="https://devgrow.org/work"
             className="group relative p-7 rounded-2xl overflow-hidden flex flex-col justify-between min-h-[180px] transition-all duration-400"
             style={{
               background: "linear-gradient(135deg, rgba(167,139,250,0.06) 0%, rgba(139,92,246,0.03) 100%)",
