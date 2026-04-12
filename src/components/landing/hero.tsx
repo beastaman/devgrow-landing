@@ -1,17 +1,20 @@
 "use client";
 
 import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { CheckCircle2, Loader2 } from "lucide-react";
+import { Loader2 } from "lucide-react";
+import { useRouter } from "next/navigation";
 import { CinematicHero } from "@/components/ui/cinematic-landing-hero";
 import { ShinyButton } from "@/components/ui/shiny-button";
+import { PhoneInput } from "@/components/ui/phone-input";
 
 function HeroLeadForm() {
+  const router = useRouter();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [dialCode, setDialCode] = useState("+91");
   const [note, setNote] = useState("");
   const [loading, setLoading] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState("");
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -22,13 +25,16 @@ function HeroLeadForm() {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, note: `Name: ${name}\n\n${note}` }),
+        body: JSON.stringify({
+          email,
+          phone: phone ? `${dialCode} ${phone}` : "",
+          note: `Name: ${name}\n\n${note}`,
+        }),
       });
       if (!res.ok) throw new Error("Failed");
-      setSubmitted(true);
+      router.push(`/thank-you?email=${encodeURIComponent(email)}`);
     } catch {
       setError("Something went wrong. Please try again.");
-    } finally {
       setLoading(false);
     }
   };
@@ -117,11 +123,11 @@ function HeroLeadForm() {
               📞 +91 961-847-7436
             </a>
             <a
-              href="mailto:hello@devgrow.in"
+              href="mailto:support@devgrow.org"
               className="flex items-center gap-2 text-sm hover:text-purple-400 transition-colors"
               style={{ color: "rgba(255,255,255,0.4)" }}
             >
-              ✉️ hello@devgrow.in
+              ✉️ support@devgrow.org
             </a>
             <a
               href="https://cal.com/mohdaman/web-discuss"
@@ -144,83 +150,67 @@ function HeroLeadForm() {
             backdropFilter: "blur(12px)",
           }}
         >
-          <AnimatePresence mode="wait">
-            {submitted ? (
-              <motion.div
-                key="success"
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                className="flex flex-col items-center gap-4 text-center py-12"
-              >
-                <CheckCircle2 className="w-14 h-14" style={{ color: "#A78BFA" }} />
-                <div>
-                  <p className="text-white font-bold text-xl mb-2">We&apos;ve got your message!</p>
-                  <p className="text-sm" style={{ color: "rgba(255,255,255,0.5)" }}>
-                    We&apos;ll reach out to{" "}
-                    <strong className="text-white">{email}</strong> within 24 hours.
-                  </p>
-                </div>
-              </motion.div>
-            ) : (
-              <motion.div key="form" initial={{ opacity: 1 }}>
-                <p className="font-display font-bold text-lg mb-1" style={{ color: "#fff" }}>
-                  Tell us about your project
-                </p>
-                <p className="text-sm mb-5" style={{ color: "rgba(255,255,255,0.35)" }}>
-                  We&apos;ll reply with a timeline + cost estimate in 24h.
-                </p>
+          <p className="font-display font-bold text-lg mb-1" style={{ color: "#fff" }}>
+            Tell us about your project
+          </p>
+          <p className="text-sm mb-5" style={{ color: "rgba(255,255,255,0.35)" }}>
+            We&apos;ll reply with a timeline + cost estimate in 24h.
+          </p>
 
-                <form onSubmit={handleSubmit} className="flex flex-col gap-3">
-                  <input
-                    type="text"
-                    placeholder="Your name"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    required
-                    className="w-full h-11 px-3.5 rounded-lg text-sm text-white placeholder:text-neutral-500 focus:outline-none transition-all"
-                    style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)" }}
-                    onFocus={(e) => (e.currentTarget.style.borderColor = "rgba(167,139,250,0.5)")}
-                    onBlur={(e) => (e.currentTarget.style.borderColor = "rgba(255,255,255,0.1)")}
-                  />
-                  <input
-                    type="email"
-                    placeholder="your@email.com"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                    className="w-full h-11 px-3.5 rounded-lg text-sm text-white placeholder:text-neutral-500 focus:outline-none transition-all"
-                    style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)" }}
-                    onFocus={(e) => (e.currentTarget.style.borderColor = "rgba(167,139,250,0.5)")}
-                    onBlur={(e) => (e.currentTarget.style.borderColor = "rgba(255,255,255,0.1)")}
-                  />
-                  <textarea
-                    placeholder="What are you building? (optional)"
-                    value={note}
-                    onChange={(e) => setNote(e.target.value)}
-                    rows={3}
-                    className="w-full px-3.5 py-2.5 rounded-lg text-sm text-white placeholder:text-neutral-500 focus:outline-none resize-none transition-all"
-                    style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)" }}
-                    onFocus={(e) => (e.currentTarget.style.borderColor = "rgba(167,139,250,0.5)")}
-                    onBlur={(e) => (e.currentTarget.style.borderColor = "rgba(255,255,255,0.1)")}
-                  />
+          <form onSubmit={handleSubmit} className="flex flex-col gap-3">
+            <input
+              type="text"
+              placeholder="Your name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              required
+              className="w-full h-11 px-3.5 rounded-lg text-sm text-white placeholder:text-neutral-500 focus:outline-none transition-all"
+              style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)" }}
+              onFocus={(e) => (e.currentTarget.style.borderColor = "rgba(167,139,250,0.5)")}
+              onBlur={(e) => (e.currentTarget.style.borderColor = "rgba(255,255,255,0.1)")}
+            />
+            <input
+              type="email"
+              placeholder="your@email.com"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              className="w-full h-11 px-3.5 rounded-lg text-sm text-white placeholder:text-neutral-500 focus:outline-none transition-all"
+              style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)" }}
+              onFocus={(e) => (e.currentTarget.style.borderColor = "rgba(167,139,250,0.5)")}
+              onBlur={(e) => (e.currentTarget.style.borderColor = "rgba(255,255,255,0.1)")}
+            />
+            <PhoneInput
+              value={phone}
+              dialCode={dialCode}
+              onValueChange={setPhone}
+              onDialChange={setDialCode}
+            />
+            <textarea
+              placeholder="What are you building? (optional)"
+              value={note}
+              onChange={(e) => setNote(e.target.value)}
+              rows={3}
+              className="w-full px-3.5 py-2.5 rounded-lg text-sm text-white placeholder:text-neutral-500 focus:outline-none resize-none transition-all"
+              style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)" }}
+              onFocus={(e) => (e.currentTarget.style.borderColor = "rgba(167,139,250,0.5)")}
+              onBlur={(e) => (e.currentTarget.style.borderColor = "rgba(255,255,255,0.1)")}
+            />
 
-                  {error && <p className="text-sm text-red-400">{error}</p>}
+            {error && <p className="text-sm text-red-400">{error}</p>}
 
-                  <ShinyButton type="submit" disabled={loading} className="w-full justify-center">
-                    {loading ? (
-                      <><Loader2 className="w-4 h-4 animate-spin" /> Sending…</>
-                    ) : (
-                      "Get Free Estimate →"
-                    )}
-                  </ShinyButton>
+            <ShinyButton type="submit" disabled={loading} className="w-full justify-center">
+              {loading ? (
+                <><Loader2 className="w-4 h-4 animate-spin" /> Sending…</>
+              ) : (
+                "Get Free Estimate →"
+              )}
+            </ShinyButton>
 
-                  <p className="text-center text-xs" style={{ color: "rgba(255,255,255,0.2)" }}>
-                    No commitment. No sales pressure. Just clarity.
-                  </p>
-                </form>
-              </motion.div>
-            )}
-          </AnimatePresence>
+            <p className="text-center text-xs" style={{ color: "rgba(255,255,255,0.2)" }}>
+              No commitment. No sales pressure. Just clarity.
+            </p>
+          </form>
         </div>
       </div>
     </section>

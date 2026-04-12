@@ -30,7 +30,7 @@ export function Nav() {
       >
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <a href="https://devgrow.org" className="flex items-center gap-2.5 group">
+          <a href="/" className="flex items-center gap-2.5 group">
             <img
               src="/devgrowlogo.png"
               alt="DevGrow"
@@ -47,10 +47,9 @@ export function Nav() {
           {/* Desktop Links */}
           <div className="hidden md:flex items-center gap-8">
             {[
-              { label: "Work", href: "https://devgrow.org/work" },
+              { label: "Work", href: "#work" },
               { label: "Services", href: "#services" },
-              { label: "Process", href: "#process" },
-              { label: "About", href: "https://devgrow.org/about" },
+              { label: "Contact", href: "#contact" },
             ].map((link) => (
               <a
                 key={link.label}
@@ -121,10 +120,9 @@ export function Nav() {
             style={{ borderTop: "1px solid rgba(255,255,255,0.08)" }}
           >
             {[
-              { label: "Work", href: "https://devgrow.org/work" },
+              { label: "Work", href: "#work" },
               { label: "Services", href: "#services" },
-              { label: "Process", href: "#process" },
-              { label: "About", href: "https://devgrow.org/about" },
+              { label: "Contact", href: "#contact" },
               { label: "Book a Call", href: "https://cal.com/mohdaman/web-discuss" },
             ].map((link) => (
               <a

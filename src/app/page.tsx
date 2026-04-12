@@ -6,7 +6,7 @@ import { CtaSection } from "@/components/landing/cta-section";
 // — ADS LANDING PAGE —
 // Sections below are commented out (not deleted) — uncomment to restore full marketing site.
 
-// import { Nav } from "@/components/landing/nav";
+import { Nav } from "@/components/landing/nav";
 // import { TrustBar } from "@/components/landing/trust-bar";
 // import { WhySection } from "@/components/landing/why-section";
 // import { ProcessSection } from "@/components/landing/process";
@@ -19,7 +19,7 @@ export default function Home() {
   return (
     <main className="relative overflow-x-hidden">
       {/* Nav removed for ads — no distractions */}
-      {/* <Nav /> */}
+      <Nav />
 
       {/* 1. Cinematic Hero + inline lead capture form */}
       <HeroSection />

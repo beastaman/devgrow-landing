@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 
 export async function POST(req: Request) {
   try {
-    const { email, note } = await req.json();
+    const { email, note, phone } = await req.json();
 
     if (!email) {
       return NextResponse.json({ error: "Email is required" }, { status: 400 });
@@ -37,6 +37,7 @@ export async function POST(req: Request) {
         body: JSON.stringify({
           fields: {
             Email: email,
+            ...(phone ? { Phone: phone } : {}),
             ...(note ? { Note: note } : {}),
             "Submitted At": new Date().toISOString(),
           },

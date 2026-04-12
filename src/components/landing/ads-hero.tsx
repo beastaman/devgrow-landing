@@ -220,8 +220,8 @@ export function AdsHero() {
                   <a href="tel:+919618477436" className="flex items-center gap-2 text-sm transition-colors hover:text-purple-400" style={{ color: "rgba(255,255,255,0.45)" }}>
                     <span>📞</span> +91 961-847-7436
                   </a>
-                  <a href="mailto:hello@devgrow.in" className="flex items-center gap-2 text-sm transition-colors hover:text-purple-400" style={{ color: "rgba(255,255,255,0.45)" }}>
-                    <span>✉️</span> hello@devgrow.in
+                  <a href="mailto:support@devgrow.org" className="flex items-center gap-2 text-sm transition-colors hover:text-purple-400" style={{ color: "rgba(255,255,255,0.45)" }}>
+                    <span>✉️</span> support@devgrow.org
                   </a>
                   <a href="https://cal.com/mohdaman/web-discuss" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm transition-colors hover:text-purple-400" style={{ color: "rgba(255,255,255,0.45)" }}>
                     <span>📅</span> Book a call

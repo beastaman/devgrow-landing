@@ -61,6 +61,7 @@ const WORK = [
 export function WorkSection() {
   return (
     <section
+    id="work"
       className="relative py-24 md:py-32 px-4 overflow-hidden"
       style={{ background: "#05050D" }}
     >
